@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+}
+.new-post {
+    height: 20px;
+    position: fixed;
+    top: 10%;
+    right: 5%;
+}
+.posts__get-posts { /* кнопка Get */
+    background-color: rgb(81, 81, 176);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    margin: 30px 0;
+}
+.post {
+    width: 700px;
+    text-align: justify;
+    margin: 50px 0;
+}
+.post__buttons {
+    margin-top: 15px;
+}
