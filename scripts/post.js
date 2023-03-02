@@ -1,12 +1,28 @@
-const postTitle = document.querySelector('.new-post__title')
-const postBody = document.querySelector('.new-post__body')
-const addNewPost = document.querySelector('.new-post__add')
 
-postTitle.addEventListener('change', (e) => state.newPost.title = e.target.value)
-postBody.addEventListener('change', (e) => state.newPost.body = e.target.value)
+
+postTitle.addEventListener('change', (e) => {
+    if (state.editPost.title) {
+        return state.editPost.title = e.target.value
+    }
+    return state.newPost.title = e.target.value
+}) 
+
+postBody.addEventListener('change', (e) => {
+    if (state.editPost.body) {
+        return state.editPost.body = e.target.value
+    }
+    return state.newPost.body = e.target.value
+})
 
 addNewPost.addEventListener('click', async () => {
-    await createPostsReques()
+
+    if (state.editPost.title || state.editPost.body) {
+        await updatePostsRequest()
+    } else {
+        await createPostsRequest()
+    }
+
+    cleanData()
     fillPostsList(state.posts)
 })
 
